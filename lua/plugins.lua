@@ -78,6 +78,25 @@ require("lazy").setup({
         "L3MON4D3/LuaSnip",
         version = "v2.*",
     },
+    -- co-pilot
+    {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function()
+          require("copilot").setup({
+              suggestion = { enabled = false },
+              panel = { enabled = false },
+          })
+      end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    },
     -- Rust
     "rust-lang/rust.vim",
     {

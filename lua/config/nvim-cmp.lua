@@ -64,6 +64,7 @@ cmp.setup({
               luasnip = '[Luasnip]',
               buffer = '[File]',
               path = '[Path]',
+              copilot = '[Copilot]',
           })[entry.source.name]
           return vim_item
       end,
@@ -75,6 +76,7 @@ cmp.setup({
       { name = 'luasnip' },     -- For luasnip user
       { name = 'buffer' },      -- For buffer word completion
       { name = 'path' },        -- For path completion
+      { name = 'copilot' },     -- github copilot
   })
 })
 
