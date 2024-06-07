@@ -36,3 +36,6 @@ vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 vim.keymap.set("n", "<A-h>", ":bprevious<CR>", opts)
 vim.keymap.set("n", "<A-l>", ":bprevious<CR>", opts)
 
+-- auto-save toggle
+vim.api.nvim_set_keymap("n", "<leader>as", ":ASToggle<CR>", {})
+

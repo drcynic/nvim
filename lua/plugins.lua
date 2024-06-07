@@ -52,6 +52,13 @@ require("lazy").setup({
         "onsails/lspkind.nvim",
         event = { "VimEnter" },
     },
+    -- auto-save
+    {
+        "Pocco81/auto-save.nvim",
+        config = function()
+            require("auto-save").setup()
+        end,
+    },
     -- Auto-completion engine
     {
         "hrsh7th/nvim-cmp",
