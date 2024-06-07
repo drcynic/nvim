@@ -41,6 +41,10 @@ require("lazy").setup({
     -- LSP manager
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+    {
+        "VonHeikemen/lsp-zero.nvim",
+        branch = "v3.x"
+    },
     "neovim/nvim-lspconfig",
     "simrat39/rust-tools.nvim",
     -- Vscode-like pictograms
@@ -87,7 +91,21 @@ require("lazy").setup({
           },
       },
       config = function(_, opts)
-        vim.g.rustaceanvim = vim.tbl_deep_extend("force", {}, opts or {})
+          vim.g.rustaceanvim = vim.tbl_deep_extend("force", {}, opts or {})
+
+          local lsp = require("lsp-zero").preset({})
+          lsp.extend_lspconfig()
+
+          -- Format on save
+          lsp.format_on_save({
+              format_opts = {
+                  async = false,
+                  timeout_ms = 10000,
+              },
+              servers = {
+                  ["rust-analyzer"] = { "rust" },
+              }
+          })
       end,
     },    
     -- Treesitter
@@ -97,5 +115,8 @@ require("lazy").setup({
         "nvim-telescope/telescope-file-browser.nvim",
         dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
     }
- })
+})
+
+require('lsp-zero')                                                                  
+require('lspconfig').intelephense.setup({})
 
