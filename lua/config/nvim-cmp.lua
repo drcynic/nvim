@@ -48,35 +48,40 @@ cmp.setup({
         end, { "i", "s" }),
     }),
 
-  -- Let's configure the item's appearance
-  -- source: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
-  formatting = {
-      -- Set order from left to right
-      -- kind: single letter indicating the type of completion
-      -- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
-      -- menu: extra text for the popup menu, displayed after "word" or "abbr"
-      fields = { 'abbr', 'menu' },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
 
-      -- customize the appearance of the completion menu
-      format = function(entry, vim_item)
-          vim_item.menu = ({
-              nvim_lsp = '[Lsp]',
-              luasnip = '[Luasnip]',
-              buffer = '[File]',
-              path = '[Path]',
-              copilot = '[Copilot]',
-          })[entry.source.name]
-          return vim_item
-      end,
-  },
+    -- Let's configure the item's appearance
+    -- source: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
+    formatting = {
+        -- Set order from left to right
+        -- kind: single letter indicating the type of completion
+        -- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
+        -- menu: extra text for the popup menu, displayed after "word" or "abbr"
+        fields = { 'abbr', 'menu' },
 
-  -- Set source precedence
-  sources = cmp.config.sources({
-      { name = 'nvim_lsp' },    -- For nvim-lsp
-      { name = 'luasnip' },     -- For luasnip user
-      { name = 'buffer' },      -- For buffer word completion
-      { name = 'path' },        -- For path completion
-      { name = 'copilot' },     -- github copilot
-  })
+        -- customize the appearance of the completion menu
+        format = function(entry, vim_item)
+            vim_item.menu = ({
+                nvim_lsp = '[Lsp]',
+                luasnip = '[Luasnip]',
+                buffer = '[File]',
+                path = '[Path]',
+                copilot = '[Copilot]',
+            })[entry.source.name]
+            return vim_item
+        end,
+    },
+
+    -- Set source precedence
+    sources = cmp.config.sources({
+        { name = 'nvim_lsp' },    -- For nvim-lsp
+        { name = 'luasnip' },     -- For luasnip user
+        { name = 'buffer' },      -- For buffer word completion
+        { name = 'path' },        -- For path completion
+        { name = 'copilot' },     -- github copilot
+    })
 })
 
