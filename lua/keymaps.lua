@@ -33,8 +33,8 @@ vim.keymap.set("n", "<Leader>fb", ":Telescope file_browser<CR>", opts)
 vim.keymap.set("n", "<Leader>ff", ":Telescope find_files<CR>", opts)
 
 -- tabs helper
-vim.keymap.set("n", "<A-h>", ":bprevious<CR>", opts)
-vim.keymap.set("n", "<A-l>", ":bnext<CR>", opts)
+vim.keymap.set("n", "<A-h>", ":BufferPrevious<CR>", opts)
+vim.keymap.set("n", "<A-l>", ":BufferNext<CR>", opts)
 
 -- auto-save toggle
 vim.api.nvim_set_keymap("n", "<Leader>as", ":ASToggle<CR>", {})
