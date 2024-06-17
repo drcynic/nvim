@@ -4,5 +4,5 @@ local opts = {
     buffer = bufnr,
 }
 
-vim.keymap.set("n", "<leader>r", ":GoRun . -F -a testdata2/<CR>i", opts)
+vim.keymap.set("n", "<leader>r", ":GoRun . -F -a testdata/<CR>i", opts)
 
