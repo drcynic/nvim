@@ -160,8 +160,8 @@ require("lazy").setup({
     "nvim-treesitter/nvim-treesitter",
     -- nvim-telescope
     {
-        "nvim-telescope/telescope-file-browser.nvim",
-        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-telescope/telescope-file-browser.nvim", "nvim-lua/plenary.nvim" }
     }
 })
 
